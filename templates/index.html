@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Heart Disease Prediction Web App</title>
+    <!-- BootStrap-->
+    <link
+    rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous"/>
+    <!-- Stylesheet-->
+    <link rel="stylesheet" href="../static/styles.css" type="text/css"/>
+    <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+ <div class="heart">
+     <br>
+    <div class="row">
+        <div class="col-8 ">
+            <!--<h2 style="text-align:center; color:white;" class="text-right mt-3 font-weight-bolder">Heart Disease Prediction</h2> -->
+                <h1 style="text-align: center; color:#4C7ABC;" class="text-right mt-3 font-weight-bolder">💉 Heart Disease Prediction 🩺\</h1>
+        </div>
+        <div class="col-1 ">
+            <img src="../static/heart3.jpeg" class="img-fluid " alt="Responsive image " >
+        </div>
+        
+    </div>
+
+    <br>
+
+ <form class="container" action="/HeartDisease" method="POST">
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="form-check form-check-inline">
+                <label class="font-weight-bold" style=" font-size:x-large;">
+                    Sex: </label>
+            </div>
+
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1" required>
+                <label class="form-check-label" style=" font-size:x-large;" for="gender">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="0" required>
+                <label class="form-check-label" style="font-size:x-large;" for="gender">Female</label>
+            </div>
+        </div>
+    </div>
+    <br>
+  
+    <div class="row">
+
+      <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <!-- Age -->
+              
+              <button type="button" class="btn btn-primary" button onclick="myFunction1()">
+                  Age
+                </button>
+                <script>function myFunction1() 
+                { alert("Input your age (Rounded off to 1 greater for more than six months)");
+                }</script>
+                <br><br>
+                
+              <input type="number" 
+              placeholder="Enter your age" 
+              min="0" max="120" 
+              id="age" name="age" 
+              style="width: 300px;" required><br>
+            </div>
+          </div>
+        </div>
+
+
+          <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body" style= "background-color: rgb(118, 221, 207); opacity:0.9">
+                  
+                  <button type="button" class="btn btn-primary" button onclick="myFunction2()">
+                      Chol
+                    </button>
+                       <script> function myFunction2() { alert("Cholesterol is a waxy substance found in your blood. Your body needs cholesterol to build healthy cells, but high levels of cholesterol can increase your risk of heart disease.With high cholesterol, you can develop fatty deposits in your blood vessels. Eventually, these deposits grow, making it difficult for enough blood to flow through your arteries. Sometimes, those deposits can break suddenly and form a clot that causes a heart attack or stroke.");}  </script>
+                  <!-- Cholesterol -->
+                  <br><br>
+                  <input type="number" 
+                  placeholder="Enter a value between 120 to 570 " 
+                  min="120" max="570" 
+                  id="chol" name="chol" 
+                  style="width: 300px;" required><br>
+                </div>
+              </div>
+            </div>
+    </div>
+    <br>
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body" style= "background-color: rgb(118, 221, 207); opacity:0.9">
+                <!-- Chest Pain Type -->
+                
+                <button type="button" class="btn btn-primary" button onclick="myFunction3()">
+                    Chest Pain Type
+                  </button>
+                  <script>function myFunction3() 
+                  { alert("Chest Pain Type:  (Value 1: Typical Angina, Value 2: Atypical angina,  Value 3: Non-anginal pain, Value 4: Asymptomatic)");
+                  }</script>
+                  <br><br>
+                  
+                <input type="number" 
+                placeholder="Enter a value between 1 and 4 " 
+                min="1" max="4" 
+                id="cp" name="cp" 
+                style="width: 300px;" required><br>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    
+                    <button type="button" class="btn btn-primary" button onclick="myFunction4()">
+                        Trestbps
+                      </button>
+                         <script> function myFunction4() { alert("Trestbps: Resting Blood Pressure (in mm Hg on admission to the hospital)");}  </script>
+                    <!-- Resting Blood Pressure -->
+                    <br><br>
+                    <input type="number" 
+                    placeholder="Enter a value between 80 and 210 " 
+                    min="80" max="210" 
+                    id="trestbps" name="trestbps" 
+                    style="width: 300px;" required><br>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+            <br>  
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <!-- Fasting Blood Pressure -->
+                
+                <button type="button" class="btn btn-primary" button onclick="myFunction5()">
+                    FBS
+                  </button>
+                  <script> function myFunction5() { alert(" FBS: Fasting Blood Sugar > 120 mg/dl (1 = True; 0 = False)");}  </script>
+                  <br><br>
+                  
+                <input type="number" 
+                placeholder="Enter a value either 0 or 1 " 
+                min="0" max="1" 
+                id="fbs" name="fbs" 
+                style="width: 300px;" required><br>
+              </div>
+            </div>
+          </div>
+        <br>
+
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body" style= "background-color: rgb(118, 221, 207); opacity:0.9">
+                    
+                    <button type="button" class="btn btn-primary" button onclick="myFunction6()">
+                        RestECG
+                      </button>
+                         <script> function myFunction6() { alert("RestECG: Resting Electrocardiograph Results");}  </script>
+                    <!-- Rest ECG-->
+                    <br><br>
+                    <input type="number" 
+                    placeholder="Enter a value either 0, 1 or 2 " 
+                    min="0" max="2" 
+                    id="restecg" name="restecg" 
+                    style="width: 300px;" required><br>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+            <br>  
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body" style= "background-color: rgb(118, 221, 207); opacity:0.9">
+                <!-- Thalach -->
+                
+                <button type="button" class="btn btn-primary" button onclick="myFunction7()">
+                    Thalach
+                  </button>
+                  <script> function myFunction7() { alert("Thalach: Maximum Heart Rate achieved");}  </script>
+                  <br><br>
+                  
+                <input type="number" 
+                placeholder="Enter a value between 70 to 165" 
+                min="70" max="165" 
+                id="thalach" name="thalach" 
+                style="width: 300px;" required><br>
+              </div>
+            </div>
+          </div>
+        <br>
+
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    
+                    <button type="button" class="btn btn-primary" button onclick="myFunction8()">
+                        Exang
+                      </button>
+                         <script> function myFunction8(){ alert("Exercise Induced Angina (1 = Yes; 0 = No)");}  </script>
+                    <!-- Exang-->
+                    <br><br>
+                    <input type="number" 
+                    placeholder="Enter either 0 or 1  " 
+                    min="0" max="1" 
+                    id="exang" name="exang" 
+                    style="width: 300px;" required><br>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+            <br>  
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <!-- Oldpeak -->
+                
+                <button type="button" class="btn btn-primary" button onclick="myFunction9()">
+                    Oldpeak
+                  </button>
+                  <script> function myFunction9() { alert("Oldpeak: ST depression induced by exercise relative to rest");}  </script>
+                  <br><br>
+                  
+                <input type="number" 
+                step="0.1" placeholder="Enter a value between 0 to 7 "
+                min="0" max="3.5"
+                id="oldpeak" name="oldpeak" 
+                style="width: 300px;" required><br>
+              </div>
+            </div>
+          </div>
+        <br>
+
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body" style= "background-color: rgb(118, 221, 207); opacity:0.9">
+                    
+                    <button type="button" class="btn btn-primary" button onclick="myFunction10()">
+                        Slope
+                      </button>
+                         <script> function myFunction10() { alert("Slope: The slope of the peak exercise ST segment ( Value 0: upsloping,  Value 1: flat, Value 2: downsloping )");}  </script>
+                    <!-- Slope -->
+                    <br><br>
+                    <input type="number" 
+                    placeholder="Enter a value either 0, 1 or 2  " 
+                    min="0" max="2" 
+                    id="slope" name="slope" 
+                    style="width: 300px;" required><br>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+            <br>  
+  
+    
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body" style= "background-color: rgb(118, 221, 207); opacity:0.9">
+                    <!-- Ca -->
+                    
+                    <button type="button" class="btn btn-primary" button onclick="myFunction11()">
+                        CA
+                      </button>
+                      <script> function myFunction11() { alert("Number of major vessels (0-3) colored by flourosopy");}  </script>
+                      <br><br>
+                      
+                    <input type="number" 
+                     placeholder="Enter a value between 0 to 4 "
+                    min="0" max="4"
+                    id="ca" name="ca" 
+                    style="width: 300px;" required><br>
+                  </div>
+                </div>
+              </div>
+            <br>
+    
+                <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        
+                        <button type="button" class="btn btn-primary" button onclick="myFunction12()">
+                            Thal
+                          </button>
+                             <script> function myFunction12() { alert("A blood disorder called thalassemia. 1- Normal, 2-Fixed Defect, 3-Reversable Defect");}  </script>
+                        <!--  Thal -->
+                        <br><br>
+                        <input type="number" 
+                        placeholder="Enter a value between 1 to 3  " 
+                        min="1" max="3" 
+                        id="thal" name="thal" 
+                        style="width: 300px;" required><br>
+                      </div>
+                    </div>
+                  </div>
+        
+                </div>
+                <br>  
+    
+
+    
+    <br><br>
+
+    
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+
+    <br><br>   
+ </form>
+</div>     
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js "
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous ">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous ">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js "
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous ">
+        </script>
+</body>
+
+</html>
